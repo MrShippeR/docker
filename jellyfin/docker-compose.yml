@@ -1,0 +1,17 @@
+version: "3"
+services:
+  jellyfin:
+    image: jellyfin/jellyfin
+    container_name: media-server
+    restart: always
+    environment:
+      - PUID=0 # root
+      - PGID=0 # root    
+# network_mode: "host"
+    ports:
+      - 8081:8096
+    volumes:
+      - /home/shipper/jellyfin/config:/config
+      - /home/shipper/cache:/cache
+      - /media/3tb/nextcloud-data/data/ShippeR/files:/nextcloud
+      - /media/3tb/torrenty/:/moris-torrenty
