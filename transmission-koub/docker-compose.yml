@@ -1,0 +1,25 @@
+version: "2.1"
+services:
+  transmission:
+    image: linuxserver/transmission
+    container_name: koub-torrenty
+    environment:
+      - PUID=1000 # shipper
+      - PGID=1000 # shipper
+      - TZ=Europe/Prague
+      - TRANSMISSION_WEB_HOME=/transmission-web-control/ #optional
+      # různá UI:
+        # /kettu/
+        # /transmission-web-control/
+        # /combustion-release/
+      - USER=koub
+      - PASS=user-password
+    volumes:
+      - /apps/koub-torrenty:/config
+      - /media/koub-torrenty:/koub-torrenty
+      # - path to watch folder:/watch
+    ports:
+      - 8082:9091
+      - 50000:50000
+      - 50000:50000/udp
+    restart: unless-stopped
