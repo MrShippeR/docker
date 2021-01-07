@@ -40,7 +40,7 @@ and activated by:
 # systemctl reload apache2
 ```
 
-### HTTPS protocol for Aoache2 websites
+### HTTPS protocol for Apache2 websites
 I'm using Let's encrypt certificates. For managing certificates I'm usig Certbot app. It's very easy to setup your web to use HTTPS with this app. Just follow instructions to [install certbot](https://certbot.eff.org/instructions). After installation just run as root:
 ```
 # certbot --apache
