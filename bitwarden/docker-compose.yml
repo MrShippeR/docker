@@ -1,0 +1,15 @@
+# docker-compose.yml
+version: '3'
+
+services:
+ bitwarden:
+  image: bitwardenrs/server
+  container_name: bitwarden
+  restart: always
+  volumes:
+      - /home/shipper/bitwarden
+  ports:
+    - 82:80
+  environment:
+   LOG_FILE: '/data/bitwarden.log'
+   SIGNUPS_ALLOWED: 'false'
